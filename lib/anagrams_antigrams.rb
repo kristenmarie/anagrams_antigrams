@@ -78,3 +78,17 @@ class AnagramAntigram
     end
   end
 end
+
+## Terminal stuff
+input = ""
+until(input == "exit") do
+  puts("Enter a word: (exit to quit)")
+  input = gets.chomp
+  if input == "exit"
+    break
+  end
+  puts("Enter a second word:")
+  input2 = gets.chomp
+  user_anagram = AnagramAntigram.new(input)
+  puts(user_anagram.anagram(input2))
+end
