@@ -16,4 +16,9 @@ describe("Phrase#anagram") do
     test = AnagramAntigram.new("racecar")
     expect(test.anagram("racecar")).to(eq("These words are anagrams AND palindromes!"))
   end
+
+  it("prompts user to enter proper word if improper word is entered") do
+    test = AnagramAntigram.new("twq")
+    expect(test.anagram("qwt")).to(eq("Please enter a proper word"))
+  end
 end
