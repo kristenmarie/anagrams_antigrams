@@ -1,11 +1,12 @@
-
 class AnagramAntigram
   def initialize(phrase)
     @phrase = phrase
   end
 
   def anagram(phrase2)
-    if(is_word?(@phrase) && is_word?(phrase2))
+    if(!is_word?(@phrase) || !is_word?(phrase2))
+      return "Please enter a proper word"
+    else
       @phrase.gsub!(/[^0-9A-Za-z]/, '')
       phrase2.gsub!(/[^0-9A-Za-z]/, '')
       if (@phrase.downcase.split("").sort.join == phrase2.downcase.split("").sort.join)
@@ -18,11 +19,16 @@ class AnagramAntigram
         if is_antigram?(@phrase, phrase2)
           return "These words are antigrams"
         else
-          return "These words are not anagrams"
+          # when phrases are not anagrams
+          same_letters = matched_letters(@phrase, phrase2)
+          if same_letters.empty?
+            return "These words are not anagrams"
+          else
+            letters = same_letters.join(" ")
+            return "These words are not anagrams, however both contain: " + letters
+          end
         end
       end
-    else
-      return "Please enter a proper word"
     end
   end
 
@@ -42,7 +48,7 @@ class AnagramAntigram
     end
   end
 
-  def is_antigram?(phrase1, phrase2)
+  def matched_letters(phrase1, phrase2)
     phrase1_letters = phrase1.downcase.split("")
     phrase2_letters = phrase2.downcase.split("")
     matched_letters = []
@@ -51,7 +57,12 @@ class AnagramAntigram
         matched_letters.push(letter)
       end
     end
-    if matched_letters.empty?
+    return matched_letters
+  end
+
+  def is_antigram?(phrase1, phrase2)
+    test_letters = matched_letters(phrase1, phrase2)
+    if test_letters.empty?
       return true
     else
       return false

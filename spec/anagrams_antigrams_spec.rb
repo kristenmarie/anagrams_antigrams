@@ -1,7 +1,7 @@
 require 'rspec'
 require 'anagrams_antigrams'
 
-describe("Phrase#anagram") do
+describe("#anagram") do
   it("check if two words are anagrams and return string with result") do
     test = AnagramAntigram.new("tea")
     expect(test.anagram("eat")).to(eq("These words are anagrams"))
@@ -30,5 +30,10 @@ describe("Phrase#anagram") do
   it("accounts for spaces and punctuation") do
     test = AnagramAntigram.new("The Eyes.")
     expect(test.anagram("They See.")).to(eq("These words are anagrams"))
+  end
+
+  it("returns matched letters in non-anagrams") do
+    test = AnagramAntigram.new("cat")
+    expect(test.anagram("batty")).to(eq("These words are not anagrams, however both contain: a t"))
   end
 end

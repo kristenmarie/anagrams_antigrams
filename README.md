@@ -28,6 +28,9 @@ _Upon entering a word or phrase the script will return if it is either an anagra
 * Account for multiple words being anagrams or antigrams
   * Example input: "A meal for one, for me alone."
   * Example output: "These words are anagrams"
+* If two phrases aren't anagrams, return letters from the argument that are matches
+  * Example input: "cat" , "batty"
+  * Example output: "a", "t"
 
 ## Setup/Installation Requirements
 
