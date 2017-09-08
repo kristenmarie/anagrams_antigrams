@@ -32,7 +32,7 @@ _Upon entering a word or phrase the script will return if it is either an anagra
   * Example input: "cat" , "batty"
   * Example output: "a", "t"
 * Use dictionary gem to look up if single word inputs are words.
-  * Example input: "cccccrap"
+  * Example input: "cccat"
   * Example output: "Please enter a proper word"
 
 ## Setup/Installation Requirements
