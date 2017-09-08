@@ -36,4 +36,10 @@ describe("#anagram") do
     test = AnagramAntigram.new("cat")
     expect(test.anagram("batty")).to(eq("These words are not anagrams, however both contain: a t"))
   end
+
+  it("asks user to enter proper word (inculding improper inputs containing vowels)") do
+    test = AnagramAntigram.new("cccat")
+    expect(test.anagram("batty")).to(eq("Please enter a proper word"))
+  end
+
 end

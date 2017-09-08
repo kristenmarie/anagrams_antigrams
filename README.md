@@ -31,6 +31,9 @@ _Upon entering a word or phrase the script will return if it is either an anagra
 * If two phrases aren't anagrams, return letters from the argument that are matches
   * Example input: "cat" , "batty"
   * Example output: "a", "t"
+* Use dictionary gem to look up if single word inputs are words.
+  * Example input: "cccccrap"
+  * Example output: "Please enter a proper word"
 
 ## Setup/Installation Requirements
 

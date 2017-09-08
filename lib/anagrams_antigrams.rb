@@ -1,5 +1,7 @@
+require 'ruby-dictionary'
 class AnagramAntigram
   def initialize(phrase)
+    @dictionary = Dictionary.from_file("words.txt")
     @phrase = phrase
   end
 
@@ -41,7 +43,7 @@ class AnagramAntigram
   end
 
   def is_word?(phrase)
-    if(phrase =~ /[aeiou]/)
+    if(@dictionary.exists?(phrase))
       return true
     else
       return false
