@@ -6,6 +6,8 @@ class AnagramAntigram
 
   def anagram(phrase2)
     if(is_word?(@phrase) && is_word?(phrase2))
+      @phrase.gsub!(/[^0-9A-Za-z]/, '')
+      phrase2.gsub!(/[^0-9A-Za-z]/, '')
       if (@phrase.downcase.split("").sort.join == phrase2.downcase.split("").sort.join)
         if(is_palindrome?(@phrase, phrase2))
           return "These words are anagrams AND palindromes!"

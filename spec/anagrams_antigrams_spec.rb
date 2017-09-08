@@ -26,4 +26,9 @@ describe("Phrase#anagram") do
     test = AnagramAntigram.new("hi")
     expect(test.anagram("bye")).to(eq("These words are antigrams"))
   end
+
+  it("accounts for spaces and punctuation") do
+    test = AnagramAntigram.new("The Eyes.")
+    expect(test.anagram("They See.")).to(eq("These words are anagrams"))
+  end
 end
