@@ -6,4 +6,9 @@ describe("Phrase#anagram") do
     test = AnagramAntigram.new("tea")
     expect(test.anagram("eat")).to(eq("These words are anagrams"))
   end
+
+  it("returns words are anagrams reguardless of case") do
+    test = AnagramAntigram.new("Tea")
+    expect(test.anagram("Eat")).to(eq("These words are anagrams"))
+  end
 end

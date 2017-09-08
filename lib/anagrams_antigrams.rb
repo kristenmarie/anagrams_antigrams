@@ -5,7 +5,7 @@ class AnagramAntigram
   end
 
   def anagram(phrase2)
-    if (@phrase.split("").sort.join == phrase2.split("").sort.join)
+    if (@phrase.downcase.split("").sort.join == phrase2.downcase.split("").sort.join)
       return "These words are anagrams"
     else
       return "These words are not anagrams"
