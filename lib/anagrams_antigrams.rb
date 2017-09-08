@@ -13,7 +13,11 @@ class AnagramAntigram
           return "These words are anagrams"
         end
       else
-        return "These words are not anagrams"
+        if is_antigram?(@phrase, phrase2)
+          return "These words are antigrams"
+        else
+          return "These words are not anagrams"
+        end
       end
     else
       return "Please enter a proper word"
@@ -30,6 +34,22 @@ class AnagramAntigram
 
   def is_word?(phrase)
     if(phrase =~ /[aeiou]/)
+      return true
+    else
+      return false
+    end
+  end
+
+  def is_antigram?(phrase1, phrase2)
+    phrase1_letters = phrase1.downcase.split("")
+    phrase2_letters = phrase2.downcase.split("")
+    matched_letters = []
+    phrase1_letters.each do |letter|
+      if (phrase2_letters.include?(letter))
+        matched_letters.push(letter)
+      end
+    end
+    if matched_letters.empty?
       return true
     else
       return false

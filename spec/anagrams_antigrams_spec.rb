@@ -21,4 +21,9 @@ describe("Phrase#anagram") do
     test = AnagramAntigram.new("twq")
     expect(test.anagram("qwt")).to(eq("Please enter a proper word"))
   end
+
+  it("checks if input is antigram if it is not an anagram") do
+    test = AnagramAntigram.new("hi")
+    expect(test.anagram("bye")).to(eq("These words are antigrams"))
+  end
 end
